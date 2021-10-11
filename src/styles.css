@@ -1,0 +1,85 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.home-heading {
+  background-color: #21375c;
+  padding: 2px;
+  margin: 0;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gray1 {
+  background-color: #4164a6;
+}
+
+.gray2 {
+  background-color: #335496;
+}
+
+.home-country-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  box-sizing: border-box;
+  width: 50%;
+  height: 50vw;
+  text-align: right;
+  padding: 10px;
+  color: #fff;
+}
+
+.arrow {
+  display: inline-block;
+  border: 0.5px solid #fff;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
+  border-radius: 100%;
+}
+
+.fa-arrow {
+  font-size: 0.7rem;
+  line-height: 50px;
+}
+
+.name-cases {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: bolder;
+}
+
+.name,
+.cases {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 755px) {
+  body {
+    color: red;
+  }
+}
