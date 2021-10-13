@@ -11,10 +11,42 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
+  background-color: #335496;
+}
+
+.navbar {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f347e;
+  padding: 0 3vw;
+  height: 40px;
+}
+
+.left,
+.right {
+  display: flex;
+  gap: 5vw;
+}
+
+.year,
+.middle {
+  font-weight: bolder;
+}
+
+.no-match {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #335496;
+  width: 100%;
+  color: rgb(170, 162, 166);
+  margin-top: 50px;
 }
 
 .home-heading {
-  background-color: #21375c;
+  background-color: #335496;
   padding: 2px;
   margin: 0;
   color: #fff;
@@ -22,9 +54,61 @@ body {
   text-align: center;
 }
 
+.h-heading {
+  text-decoration: underline;
+}
+
 .home-container {
   display: flex;
   flex-wrap: wrap;
+  font-size: 1rem;
+}
+
+.home-container a {
+  text-decoration: none;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 3px;
+  width: 100%;
+  margin: 0;
+  background-color: rgb(21, 142, 172);
+}
+
+.search-down {
+  display: flex;
+  border-bottom: 5px solid #fff;
+  margin: 0;
+}
+
+.search-field {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-left: 1px solid #fff;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 1rem;
+}
+
+.search-field:focus {
+  outline: none;
+}
+
+.search-container > * {
+  box-sizing: border-box;
+  width: 50%;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.search-text {
+  color: #fff;
 }
 
 .gray1 {
@@ -71,11 +155,40 @@ body {
 
 .name {
   font-weight: bolder;
+  margin-bottom: 5px;
 }
 
 .name,
 .cases {
   max-width: 100%;
+}
+
+.country-header {
+  color: #fff;
+  text-align: center;
+}
+
+.counry-page-name {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.footer {
+  text-align: center;
+  color: #fff;
+  font-size: 0.9rem;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-text {
+  background-color: #0f347e;
+  padding: 0 3vw;
+  height: 40px;
+  margin: 0;
+  line-height: 40px;
 }
 
 @media screen and (min-width: 755px) {
