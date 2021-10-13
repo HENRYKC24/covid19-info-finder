@@ -25,7 +25,13 @@ const CountryPage = () => {
           </tr>
         </thead>
         <tbody className="coutry-tbody">
-          <TableRow param="one" value="val" />
+          <TableRow param="Total Confirmed" value={data.today_confirmed} />
+          <TableRow param="Cases Today" value={data.today_new_confirmed} />
+          <TableRow param="Total Deaths" value={data.today_deaths} />
+          <TableRow param="Deaths Today" value={data.today_new_deaths} />
+          <TableRow param="Open Cases" value={data.today_open_cases} />
+          <TableRow param="Total Recovery" value={data.today_recovered} />
+          <TableRow param="Recovery Today" value={data.today_new_recovered} />
         </tbody>
       </table>
       <span>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaGlobeAmericas } from 'react-icons/fa';
 import CountryCard from '../components/CountryCard';
@@ -38,9 +38,9 @@ const HomePage = () => {
     });
   };
 
-  // useEffect(() => {
-  //   dispatch(getCovidInfoFromServer(dateValue));
-  // }, []);
+  useEffect(() => {
+    setInternalState(() => state);
+  }, [dateValue]);
 
   return (
     <div className="home-container">

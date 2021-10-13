@@ -5,7 +5,7 @@ const TableRow = (props) => {
   return (
     <tr>
       <td>{param}</td>
-      <td>{value}</td>
+      <td>{value.toLocaleString()}</td>
     </tr>
   );
 };
