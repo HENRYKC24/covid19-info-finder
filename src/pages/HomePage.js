@@ -17,10 +17,9 @@ const HomePage = () => {
   let isOdd = false;
 
   const onDateChange = (e) => {
-    setDateValue(() => {
-      dispatch(getCovidInfoFromServer(e.target.value));
-      return e.target.value;
-    });
+    console.log(e.target.value, 'e.target.value');
+    dispatch(getCovidInfoFromServer(e.target.value));
+    setDateValue(() => e.target.value);
   };
 
   const filterByCountryName = (value) => {
@@ -40,7 +39,7 @@ const HomePage = () => {
 
   useEffect(() => {
     setInternalState(() => state);
-  }, [dateValue]);
+  }, []);
 
   return (
     <div className="home-container">
@@ -85,22 +84,22 @@ const HomePage = () => {
         if (index % 2 === 0 && isEven) {
           isEven = !isEven;
           const className = 'home-country-card gray1';
-          return <CountryCard key={Math.random()} className={className} item={item} />;
+          return <CountryCard key={Math.random()} className={className} id={item.id} />;
         }
         if (index % 2 === 0 && !isEven) {
           isEven = !isEven;
           const className = 'home-country-card gray2';
-          return <CountryCard key={Math.random()} className={className} item={item} />;
+          return <CountryCard key={Math.random()} className={className} id={item.id} />;
         }
         if (index % 2 === 1 && !isOdd) {
           isOdd = !isOdd;
           const className = 'home-country-card gray2';
-          return <CountryCard key={Math.random()} className={className} item={item} />;
+          return <CountryCard key={Math.random()} className={className} id={item.id} />;
         }
         if (index % 2 === 1 && isOdd) {
           isOdd = !isOdd;
           const className = 'home-country-card gray1';
-          return <CountryCard key={Math.random()} className={className} item={item} />;
+          return <CountryCard key={Math.random()} className={className} id={item.id} />;
         }
         return false;
       })}
