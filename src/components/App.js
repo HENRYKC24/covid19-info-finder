@@ -6,14 +6,17 @@ import { getCovidInfoFromServer } from '../redux/covid19/covid19';
 import HomePage from '../pages/HomePage';
 import CountryPage from '../pages/CountryPage';
 import RegionPage from '../pages/RegionPage';
+import SubRegionPage from '../pages/SubRegionPage';
 import PageNotFound from '../pages/PageNotFound';
 import Footer from './Footer';
 import Header from './Header';
+import { getCovidFlagsFromServer } from '../redux/covid19/flags';
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCovidInfoFromServer());
+    dispatch(getCovidFlagsFromServer());
   }, []);
 
   return (
@@ -24,11 +27,14 @@ const App = () => {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/country">
+          <Route path="/country/:name">
             <CountryPage />
           </Route>
-          <Route path="/region">
+          <Route path="/region/:country/:region">
             <RegionPage />
+          </Route>
+          <Route path="/sub_region/:country/:region/:sub_region">
+            <SubRegionPage />
           </Route>
           <Route path="*">
             <PageNotFound />
