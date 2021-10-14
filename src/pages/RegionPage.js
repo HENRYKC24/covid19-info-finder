@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import TableRow from '../components/TableRow';
 
@@ -20,7 +20,6 @@ const RegionPage = () => {
     flag = location.flag;
     localStorage.setItem('regionData', JSON.stringify({ data, country, flag }));
   }
-  // const { data, country } = location;
   const { sub_regions: subRegions } = data;
   return (
     <div>
@@ -30,7 +29,6 @@ const RegionPage = () => {
       </h1>
       <div className="world-wide-country">
         <div className="globe-icon-container">
-          {/* <FaGlobeAmericas /> */}
           <img className="country-image" src={flag} alt="national flag" />
         </div>
         <div className="world-wide">
@@ -53,28 +51,30 @@ const RegionPage = () => {
         )}
       </table>
       <span className="break-down">Data By Sub-Region</span>
-      {subRegions ? subRegions.map((item) => (
-        <Link
-          to={{
-            pathname: `/sub_region/${country}/${data.name.toLowerCase().split(' ').join('')}/${item.name.toLowerCase().split(' ').join('')}`,
-            data: item,
-            flag,
-          }}
-          exact="true"
-          className="region-data-container-link"
-          key={uuidv4()}
-        >
-          <div className="region-data-container">
-            <p className="region-name">{item.name}</p>
-            <div className="inner-region-container">
-              <p className="region-case">{item.today_confirmed.toLocaleString()}</p>
-              <span className="arrow">
-                <FaArrowRight className="fa-arrow" />
-              </span>
+      <div className="regions-container">
+        {subRegions ? subRegions.map((item) => (
+          <NavLink
+            to={{
+              pathname: `/subregion/${country}/${data.name.toLowerCase().split(' ').join('')}/${item.name.toLowerCase().split(' ').join('')}`,
+              data: item,
+              flag,
+            }}
+            className="region-data-container-link"
+            key={uuidv4()}
+            exact
+          >
+            <div className="region-data-container">
+              <p className="region-name">{item.name}</p>
+              <div className="inner-region-container">
+                <p className="region-case">{item.today_confirmed.toLocaleString()}</p>
+                <span className="arrow">
+                  <FaArrowRight className="fa-arrow" />
+                </span>
+              </div>
             </div>
-          </div>
-        </Link>
-      )) : 'N/A'}
+          </NavLink>
+        )) : null}
+      </div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Flag from '../no_flag.png';
 
 const CountryCard = ({ className, id }) => {
   const state = useSelector((state) => state.covid19Data);
@@ -35,17 +36,17 @@ const CountryCard = ({ className, id }) => {
   ) : [{ flagURL: 'https://nodaata' }];
 
   return (
-    <Link
+    <NavLink
       to={{
         pathname: `/country/${item.name.toLowerCase()}`,
         data: item,
-        flag: flagURL[0] ? flagURL[0].flagURL : 'not found',
+        flag: flagURL[0] ? flagURL[0].flagURL : Flag,
       }}
-      exact="true"
       className={className}
+      exact
     >
       <div className={className}>
-        <img className="flag" src={flagURL[0] && flagURL[0].flagURL} alt="flag" />
+        <img className="flag" src={flagURL[0] ? flagURL[0].flagURL : Flag} alt="flag" />
         <span className="arrow">
           <FaArrowRight className="fa-arrow" />
         </span>
@@ -56,7 +57,7 @@ const CountryCard = ({ className, id }) => {
           </span>
         </div>
       </div>
-    </Link>
+    </NavLink>
   );
 };
 

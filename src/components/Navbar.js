@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { BsFillMicFill, BsFillGearFill } from 'react-icons/bs';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const Navbar = () => {
   const state = useSelector((state) => state.covid19Data);
@@ -21,6 +21,7 @@ const Navbar = () => {
         <span className="settings">
           <BsFillGearFill />
         </span>
+        <span className="back"><FaArrowRight onClick={() => history.goForward()} /></span>
       </div>
     </div>
   );

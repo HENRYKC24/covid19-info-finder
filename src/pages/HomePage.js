@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { FaGlobeAmericas } from 'react-icons/fa';
 import CountryCard from '../components/CountryCard';
 import { getCovidInfoFromServer } from '../redux/covid19/covid19';
+import Globe from '../globe.gif';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   let state = useSelector((state) => state.covid19Data);
-  // const flags = useSelector((state) => state.nationalFlags);
   state = Array.isArray(state) ? state : [];
 
   const [internalState, setInternalState] = useState(state);
@@ -76,7 +75,7 @@ const HomePage = () => {
       <h1 className="home-heading h-heading">{state[0] && new Date(state[0].date).toDateString()}</h1>
 
       <div className="globe-icon-container">
-        <FaGlobeAmericas />
+        <img className="globe" src={Globe} alt="Globe" />
       </div>
 
       <div className="world-wide">
@@ -113,18 +112,6 @@ const HomePage = () => {
       </div>
 
       {(internalState.length === 0 ? state : internalState).map((item, index) => {
-        // const flagURL = flags.filter(
-        //   (country) => {
-        //     const left = item.name ? item.name.toLowerCase().split(' ').join('') : '';
-        //     const right = country.country.toLowerCase().split(' ').join('');
-        //     if (right === 'timor-leste' && left === 'timor-leste') {
-        //       console.log(right, left);
-        //       return true;
-        //     }
-        //     // console.log(left, 'left, ', right, 'right');
-        //     return ((left === right) || (right.includes(left)) || (left.includes(right)));
-        //   },
-        // ) || 'one';
         if (item === false) return <div key={Math.random()} className="no-match">No match found</div>;
         if (index % 2 === 0 && isEven) {
           isEven = !isEven;
@@ -135,7 +122,6 @@ const HomePage = () => {
               className={className}
               date={item.date}
               id={item.id}
-              // flag={flagURL}
             />
           );
         }

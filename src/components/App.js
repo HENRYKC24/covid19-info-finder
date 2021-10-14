@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/region/:country/:region">
             <RegionPage />
           </Route>
-          <Route path="/sub_region/:country/:region/:sub_region">
+          <Route path="/subregion/:nation/:region/:subregion">
             <SubRegionPage />
           </Route>
           <Route path="*">

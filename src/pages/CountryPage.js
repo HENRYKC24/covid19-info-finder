@@ -1,10 +1,9 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import TableRow from '../components/TableRow';
-// import { getCovidInfoFromServer } from '../redux/covid19/covid19';
 
 const CountryPage = () => {
   const location = useLocation();
@@ -12,8 +11,6 @@ const CountryPage = () => {
   let dateMain;
   let flagMain;
   if (location.data) {
-    // const { id, date } = location.data;
-    console.log(location, 'loction from here');
     idMain = location.data.id;
     dateMain = location.data.date;
     flagMain = location.flag;
@@ -38,7 +35,6 @@ const CountryPage = () => {
       </h1>
       <div className="world-wide-country">
         <div className="globe-icon-container">
-          {/* <FaGlobeAmericas /> */}
           <img className="country-image" src={flagMain} alt="national flag" />
         </div>
         <div className="world-wide">
@@ -63,16 +59,16 @@ const CountryPage = () => {
       <span className="break-down">Data By Region</span>
       <div className="regions-container">
         {regions ? regions.map((item) => (
-          <Link
+          <NavLink
             to={{
               pathname: `/region/${data.name.toLowerCase().split(' ').join('')}/${item.name.toLowerCase().split(' ').join('')}`,
               data: item,
               country: data.name.toLowerCase().split(' ').join(''),
               flag: flagMain,
             }}
-            exact="true"
             className="region-data-container-link"
             key={uuidv4()}
+            exact
           >
             <div className="region-data-container">
               <p className="region-name">{item.name}</p>
@@ -83,8 +79,8 @@ const CountryPage = () => {
                 </span>
               </div>
             </div>
-          </Link>
-        )) : 'N/A'}
+          </NavLink>
+        )) : null}
       </div>
       {(regions && !regions[0]) && <div className="not-available">{regions && !regions[0] && 'Regional Data Unavailable'}</div>}
       <div className="source">
