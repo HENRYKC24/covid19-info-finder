@@ -43,7 +43,6 @@ export const getCovidInfoFromServer = (dateValue) => async (dispatch) => {
     const month = dateObject.month.toString().length === 1 ? `0${dateObject.month}` : dateObject.month;
     const date = dateObject.date.toString().length === 1 ? `0${dateObject.date}` : dateObject.date;
     const defaultDate = `${year}-${month}-${date}`;
-    console.log(dateValue, '*********from thunk');
     const url = `https://api.covid19tracking.narrativa.com/api/${dateValue || defaultDate}`;
     const tempResult = await fetch(url);
     const finalResult = await tempResult.json();
