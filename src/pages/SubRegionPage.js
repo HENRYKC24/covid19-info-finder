@@ -8,19 +8,16 @@ const SubRegionPage = () => {
   let country;
   let flag;
   if (!location.data) {
-    location = JSON.parse(localStorage.getItem('regionData'));
+    location = JSON.parse(localStorage.getItem('subRegionData'));
     data = location.data;
     country = location.country;
     flag = location.flag;
   } else {
     data = location.data;
-    console.log(data, 'sub region yes location data');
     country = location.country;
     flag = location.flag;
-    localStorage.setItem('regionData', JSON.stringify({ data, country, flag }));
+    localStorage.setItem('subRegionData', JSON.stringify({ data, country, flag }));
   }
-  // const { data, country } = location;
-  // const { sub_regions: dataMain } = data;
   return (
     <div>
       <h1 className="country-header">Sub-Regional Cases</h1>
@@ -29,7 +26,6 @@ const SubRegionPage = () => {
       </h1>
       <div className="world-wide-country">
         <div className="globe-icon-container">
-          {/* <FaGlobeAmericas /> */}
           <img className="country-image" src={flag} alt="national flag" />
         </div>
         <div className="world-wide">
@@ -51,7 +47,6 @@ const SubRegionPage = () => {
           </tbody>
         )}
       </table>
-      {/* <span className="break-down">Data By Sub-Region</span> */}
     </div>
   );
 };

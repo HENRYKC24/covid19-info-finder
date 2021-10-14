@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0f347e;
+  background-color: #18253f;
   padding: 0 3vw;
   height: 40px;
 }
@@ -40,6 +40,11 @@ body {
 .year,
 .middle {
   font-weight: bolder;
+}
+
+.globe {
+  width: 100%;
+  height: 100%;
 }
 
 .no-match {
@@ -84,6 +89,7 @@ body {
   display: flex;
   flex-direction: column;
   position: sticky;
+  width: 100%;
   top: 40px;
   z-index: 2;
 }
@@ -95,7 +101,7 @@ body {
   padding-left: 3px;
   width: 100%;
   margin: 0;
-  background-color: #0f347e;
+  background-color: #2a4988;
 }
 
 .search-down {
@@ -247,7 +253,7 @@ body {
 }
 
 .break-down {
-  background-color: #143d88;
+  background-color: #2a4988;
   display: block;
   text-align: center;
   padding: 10px 0;
@@ -339,7 +345,7 @@ body {
 }
 
 .footer-text {
-  background-color: #0f347e;
+  background-color: #18253f;
   padding: 0 3vw;
   height: 40px;
   margin: 0;

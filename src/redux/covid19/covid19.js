@@ -46,7 +46,6 @@ export const getCovidInfoFromServer = (dateValue) => async (dispatch) => {
     const url = `https://api.covid19tracking.narrativa.com/api/${dateValue || defaultDate}`;
     const tempResult = await fetch(url);
     const finalResult = await tempResult.json();
-    // const dateString = `${year}-${month}-${date}`;
     const countriesDataArray = Object.values(finalResult.dates[dateValue || defaultDate].countries);
     dispatch(fetchData(countriesDataArray));
   } catch (e) {
@@ -64,7 +63,6 @@ export const getCovidInfoFromServer = (dateValue) => async (dispatch) => {
     const url = `https://api.covid19tracking.narrativa.com/api/${dateValue || defaultDate}`;
     const tempResult = await fetch(url);
     const finalResult = await tempResult.json();
-    // const dateString = `${year}-${month}-${date}`;
     const countriesDataArray = Object.values(finalResult.dates[dateValue || defaultDate].countries);
     dispatch(fetchData(countriesDataArray));
   }
