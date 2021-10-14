@@ -1,10 +1,8 @@
 import React from 'react';
-import { FaArrowRight } from 'react-icons/fa';
-import { Link, useLocation } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { useLocation } from 'react-router-dom';
 import TableRow from '../components/TableRow';
 
-const RegionPage = () => {
+const SubRegionPage = () => {
   let location = useLocation();
   let data;
   let country;
@@ -16,15 +14,16 @@ const RegionPage = () => {
     flag = location.flag;
   } else {
     data = location.data;
+    console.log(data, 'sub region yes location data');
     country = location.country;
     flag = location.flag;
     localStorage.setItem('regionData', JSON.stringify({ data, country, flag }));
   }
   // const { data, country } = location;
-  const { sub_regions: subRegions } = data;
+  // const { sub_regions: dataMain } = data;
   return (
     <div>
-      <h1 className="country-header">Regional Cases</h1>
+      <h1 className="country-header">Sub-Regional Cases</h1>
       <h1 className="country-header h-heading">
         {new Date(data.date).toDateString()}
       </h1>
@@ -39,7 +38,7 @@ const RegionPage = () => {
           <span>{data && data.today_confirmed.toLocaleString()}</span>
         </div>
       </div>
-      <span className="break-down">Regional Data Breakdown</span>
+      <span className="break-down">Sub-Regional Data Breakdown</span>
       <table className="country-table">
         {data && (
           <tbody className="coutry-tbody">
@@ -52,31 +51,9 @@ const RegionPage = () => {
           </tbody>
         )}
       </table>
-      <span className="break-down">Data By Sub-Region</span>
-      {subRegions ? subRegions.map((item) => (
-        <Link
-          to={{
-            pathname: `/sub_region/${country}/${data.name.toLowerCase().split(' ').join('')}/${item.name.toLowerCase().split(' ').join('')}`,
-            data: item,
-            flag,
-          }}
-          exact="true"
-          className="region-data-container-link"
-          key={uuidv4()}
-        >
-          <div className="region-data-container">
-            <p className="region-name">{item.name}</p>
-            <div className="inner-region-container">
-              <p className="region-case">{item.today_confirmed.toLocaleString()}</p>
-              <span className="arrow">
-                <FaArrowRight className="fa-arrow" />
-              </span>
-            </div>
-          </div>
-        </Link>
-      )) : 'N/A'}
+      {/* <span className="break-down">Data By Sub-Region</span> */}
     </div>
   );
 };
 
-export default RegionPage;
+export default SubRegionPage;

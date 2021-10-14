@@ -1,39 +1,96 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import TableRow from '../components/TableRow';
+// import { getCovidInfoFromServer } from '../redux/covid19/covid19';
 
 const CountryPage = () => {
   const location = useLocation();
-  let { data } = location;
-  if (!data) {
-    data = JSON.parse(localStorage.getItem('data'));
+  let idMain;
+  let dateMain;
+  let flagMain;
+  if (location.data) {
+    // const { id, date } = location.data;
+    console.log(location, 'loction from here');
+    idMain = location.data.id;
+    dateMain = location.data.date;
+    flagMain = location.flag;
+    localStorage.setItem('idState', JSON.stringify([idMain, dateMain, flagMain]));
   } else {
-    localStorage.setItem('data', JSON.stringify(data));
+    const idState = JSON.parse(localStorage.getItem('idState'));
+    const [id, date, flag] = idState;
+    idMain = id;
+    dateMain = date;
+    flagMain = flag;
   }
-  console.log(data);
+
+  let state = useSelector((state) => state.covid19Data);
+  state = Array.isArray(state) ? state : [];
+  const data = state.filter((item) => item.id === idMain)[0];
+  const { regions } = data || { rogions: [] };
   return (
     <div className="country-container">
-      <h1 className="country-header">
-        {new Date(data.date).toDateString()}
+      <h1 className="country-header">Country Cases</h1>
+      <h1 className="country-header h-heading">
+        {new Date(dateMain).toDateString()}
       </h1>
-      <h1 className="counry-page-name">{data.name}</h1>
+      <div className="world-wide-country">
+        <div className="globe-icon-container">
+          {/* <FaGlobeAmericas /> */}
+          <img className="country-image" src={flagMain} alt="national flag" />
+        </div>
+        <div className="world-wide">
+          <span className="cases">{data && data.name}</span>
+          <span className="cases">Total</span>
+          <span>{data && data.today_confirmed.toLocaleString()}</span>
+        </div>
+      </div>
+      <span className="break-down">Country Data Breakdown</span>
       <table className="country-table">
-        <thead className="country-thead">
-          <tr className="country-head-row">
-            <th>Parameter</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody className="coutry-tbody">
-          <TableRow param="one" value="val" />
-        </tbody>
+        {data && (
+          <tbody className="coutry-tbody">
+            <TableRow param="Cases Today" value={data.today_new_confirmed} />
+            <TableRow param="Total Deaths" value={data.today_deaths} />
+            <TableRow param="Deaths Today" value={data.today_new_deaths} />
+            <TableRow param="Open Cases" value={data.today_open_cases} />
+            <TableRow param="Total Recovery" value={data.today_recovered} />
+            <TableRow param="Recovery Today" value={data.today_new_recovered} />
+          </tbody>
+        )}
       </table>
-      <span>
+      <span className="break-down">Data By Region</span>
+      <div className="regions-container">
+        {regions ? regions.map((item) => (
+          <Link
+            to={{
+              pathname: `/region/${data.name.toLowerCase().split(' ').join('')}/${item.name.toLowerCase().split(' ').join('')}`,
+              data: item,
+              country: data.name.toLowerCase().split(' ').join(''),
+              flag: flagMain,
+            }}
+            exact="true"
+            className="region-data-container-link"
+            key={uuidv4()}
+          >
+            <div className="region-data-container">
+              <p className="region-name">{item.name}</p>
+              <div className="inner-region-container">
+                <p className="region-case">{item.today_confirmed.toLocaleString()}</p>
+                <span className="arrow">
+                  <FaArrowRight className="fa-arrow" />
+                </span>
+              </div>
+            </div>
+          </Link>
+        )) : 'N/A'}
+      </div>
+      {(regions && !regions[0]) && <div className="not-available">{regions && !regions[0] && 'Regional Data Unavailable'}</div>}
+      <div className="source">
         Source:
-        {data.source}
-      </span>
-      <div>
-        <p>Regional Data</p>
+        {' '}
+        {data && data.source}
       </div>
     </div>
   );

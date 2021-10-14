@@ -3,9 +3,9 @@ import React from 'react';
 const TableRow = (props) => {
   const { param, value } = props;
   return (
-    <tr>
+    <tr className="table-row">
       <td>{param}</td>
-      <td>{value}</td>
+      <td>{value.toLocaleString()}</td>
     </tr>
   );
 };
