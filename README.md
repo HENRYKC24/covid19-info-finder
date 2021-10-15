@@ -10,20 +10,18 @@ The application shows information about the coronavirus situations in the world.
 5. Redux
 
 
-## Built With
+# Online Demo Links
+[View App Online](https://henrykc24.github.io/covid19-info-finder/)
+# App Intro Video
+[View App Intro](./src/assets/video/coronavirus_capstone_app.mp4)
 
-- HTML
-- CSS
-- JavaScript
-- React
-- Redux
+# App Screenshot (Desktop)
 
-# Demo Links
-[Demo Link]()
-
-# Screenshot
-------------
-![print]()
+![print](./src/assets/images/app_screenshot.png)
+# App Screenshot (mobile)
+![print](./src/assets/images/app_screenshot_mobile.png)
+# App Screenshot (Tests Results)
+![print](./src/assets/images/tests_result.png)
 
 ## Getting Started
 
@@ -58,7 +56,7 @@ Feel free to check the [issues page](https://github.com/HENRYKC24/covid19-info-f
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-- A spcial thanks to "Creative Commons license of the design" for providing me with the design template used for this project.
+- A spcial thanks to "Creative Commons" for providing me with the design template used for this project.
 - I remain indepted to the Facebook team that developed create-react-app and React Redux as open source.
 - A special thanks to Microverse for inspiring this project. I really appreciate.
 - A special thanks goes to all my peers at Microverse for being ther for me.
