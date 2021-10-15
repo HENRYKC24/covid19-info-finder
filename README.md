@@ -13,7 +13,7 @@ The application shows information about the coronavirus situations in the world.
 # Online Demo Links
 [View App Online](https://henrykc24.github.io/covid19-info-finder/)
 # App Intro Video
-[View App Intro](./src/assets/video/coronavirus_capstone_app.mp4)
+[View App Intro](https://vimeo.com/632982353)
 
 # App Screenshot (Desktop)
 
