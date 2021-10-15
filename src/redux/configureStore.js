@@ -1,5 +1,4 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import covid19Reducer from './covid19/covid19';
 import covid19FlagsReducer from './covid19/flags';
@@ -9,6 +8,6 @@ const rootReducer = combineReducers({
   nationalFlags: covid19FlagsReducer,
 });
 
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;
