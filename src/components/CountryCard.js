@@ -2,7 +2,7 @@ import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import Flag from '../no_flag.png';
+import Flag from '../assets/images/no_flag.png';
 
 const CountryCard = ({ className, id }) => {
   const state = useSelector((state) => state.covid19Data);
