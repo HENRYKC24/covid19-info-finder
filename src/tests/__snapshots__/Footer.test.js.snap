@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar renders the UI as expected 1`] = `
+<footer
+  className="footer"
+>
+  <p
+    className="footer-text"
+  >
+    Created with 💖 by Henry Kc at Microverse Inc., US.
+  </p>
+</footer>
+`;

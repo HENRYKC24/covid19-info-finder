@@ -33,7 +33,7 @@ const CountryCard = ({ className, id }) => {
       }
       return ((left === right));
     },
-  ) : [{ flagURL: 'https://nodaata' }];
+  ) : [{ flagURL: 'https://img.etimg.com/thumb/msid-76340801,width-650,imgsize-389237,,resizemode-4,quality-100/coronavirus-vaccine-antibodies1_istock.jpg' }];
 
   return (
     <NavLink

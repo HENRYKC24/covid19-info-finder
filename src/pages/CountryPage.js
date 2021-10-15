@@ -38,7 +38,7 @@ const CountryPage = () => {
           <img className="country-image" src={flagMain} alt="national flag" />
         </div>
         <div className="world-wide">
-          <span className="cases">{data && data.name}</span>
+          <span className="cases name">{data && data.name}</span>
           <span className="cases">Total</span>
           <span>{data && data.today_confirmed.toLocaleString()}</span>
         </div>
@@ -58,7 +58,17 @@ const CountryPage = () => {
       </table>
       <span className="break-down">Data By Region</span>
       <div className="regions-container">
-        {regions ? regions.map((item) => (
+        {regions ? regions.sort(
+          (a, b) => {
+            if (a.name > b.name) {
+              return 1;
+            }
+            if ((b.name > a.name)) {
+              return -1;
+            }
+            return 0;
+          },
+        ).map((item) => (
           <NavLink
             to={{
               pathname: `/region/${data.name.toLowerCase().split(' ').join('')}/${item.name.toLowerCase().split(' ').join('')}`,

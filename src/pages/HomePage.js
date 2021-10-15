@@ -21,25 +21,32 @@ const HomePage = () => {
 
   const onDateChange = (e) => {
     const { value } = e.target;
-    const dateArray = value.split('-');
-    const [year, month, day] = dateArray;
+    // const dateArray = value.split('-');
+    // const [year, month, day] = dateArray;
 
-    const minDate = '2020-02-01';
-    const minDateArray = minDate.split('-');
-    const [minYear, MinMonth] = minDateArray;
+    // const minDate = '2020-02-01';
+    // const minDateArray = minDate.split('-');
+    // const [minYear, MinMonth] = minDateArray;
 
     let passed = true;
-    const now = new Date();
-    const nowYeah = now.getFullYear();
-    const nowMonth = now.getMonth() + 1;
-    const nowDay = now.getDate();
-    if (+year < +minYear) passed = false;
-    if (+year === +minYear && +month < +MinMonth) passed = false;
-    if (+year === +minYear && +month > 1) passed = true;
-    if (value === minDate) passed = true;
-    if (+year > nowYeah) passed = false;
-    if (+year === nowYeah && +month > nowMonth) passed = false;
-    if (+year === nowYeah && +month === nowMonth && +day > nowDay) passed = false;
+    // const now = new Date();
+    // const nowYeah = now.getFullYear();
+    // const nowMonth = now.getMonth() + 1;
+    // const nowDay = now.getDate();
+    // if (+year < +minYear) passed = false;
+    // if (+year === +minYear && +month < +MinMonth) passed = false;
+    // if (+year === +minYear && +month > 1) passed = true;
+    // if (value === minDate) passed = true;
+    // if (+year > nowYeah) passed = false;
+    // if (+year === nowYeah && +month > nowMonth) passed = false;
+    // if (+year === nowYeah && +month === nowMonth && +day > nowDay) passed = false;
+    const minDate = new Date('2020-02-01').getTime();
+    const passedDate = new Date(value).getTime();
+    const todaysDate = new Date().getTime();
+
+    if (passedDate < minDate || passedDate > todaysDate) {
+      passed = false;
+    }
 
     if (passed) {
       dispatch(getCovidInfoFromServer(value));
@@ -79,7 +86,7 @@ const HomePage = () => {
       </div>
 
       <div className="world-wide">
-        <span className="cases">All Countries</span>
+        <span className="cases name">All Countries</span>
         <span className="cases">Total</span>
         <span>
           {worldWideTotal.toLocaleString()}
@@ -105,9 +112,9 @@ const HomePage = () => {
 
         <div className="search-container search-down">
           <span className="search-text">
-            STAT BY COUNTRY
+            STATS BY COUNTRY
           </span>
-          <input className="search-field" placeholder="Search" onChange={onInputChange} value={inputValue} type="text" />
+          <input id="country-search" className="search-field" placeholder="Search" onChange={onInputChange} value={inputValue} type="text" />
         </div>
       </div>
 

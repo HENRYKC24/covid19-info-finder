@@ -22,7 +22,7 @@ const RegionPage = () => {
   }
   const { sub_regions: subRegions } = data;
   return (
-    <div>
+    <div className="region-container">
       <h1 className="country-header">Regional Cases</h1>
       <h1 className="country-header h-heading">
         {new Date(data.date).toDateString()}
@@ -32,7 +32,7 @@ const RegionPage = () => {
           <img className="country-image" src={flag} alt="national flag" />
         </div>
         <div className="world-wide">
-          <span className="cases">{data && data.name}</span>
+          <span className="cases name">{data && data.name}</span>
           <span className="cases">Total</span>
           <span>{data && data.today_confirmed.toLocaleString()}</span>
         </div>
@@ -52,7 +52,17 @@ const RegionPage = () => {
       </table>
       <span className="break-down">Data By Sub-Region</span>
       <div className="regions-container">
-        {subRegions ? subRegions.map((item) => (
+        {subRegions ? subRegions.sort(
+          (a, b) => {
+            if (a.name > b.name) {
+              return 1;
+            }
+            if ((b.name > a.name)) {
+              return -1;
+            }
+            return 0;
+          },
+        ).map((item) => (
           <NavLink
             to={{
               pathname: `/subregion/${country}/${data.name.toLowerCase().split(' ').join('')}/${item.name.toLowerCase().split(' ').join('')}`,

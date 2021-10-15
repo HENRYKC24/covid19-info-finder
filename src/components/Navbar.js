@@ -13,7 +13,7 @@ const Navbar = () => {
         <span className="back"><FaArrowLeft onClick={() => history.goBack()} /></span>
         <span className="year">{state[0] && state[0].date.split('-')[0]}</span>
       </div>
-      <span className="middle">Corona Virus</span>
+      <span className="middle">Coronavirus App</span>
       <div className="right">
         <span className="mic">
           <BsFillMicFill />
