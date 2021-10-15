@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import CountryCard from '../components/CountryCard';
 import { getCovidInfoFromServer } from '../redux/covid19/covid19';
-import Globe from '../globe.gif';
+import Globe from '../assets/images/globe.gif';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -21,25 +21,8 @@ const HomePage = () => {
 
   const onDateChange = (e) => {
     const { value } = e.target;
-    // const dateArray = value.split('-');
-    // const [year, month, day] = dateArray;
-
-    // const minDate = '2020-02-01';
-    // const minDateArray = minDate.split('-');
-    // const [minYear, MinMonth] = minDateArray;
 
     let passed = true;
-    // const now = new Date();
-    // const nowYeah = now.getFullYear();
-    // const nowMonth = now.getMonth() + 1;
-    // const nowDay = now.getDate();
-    // if (+year < +minYear) passed = false;
-    // if (+year === +minYear && +month < +MinMonth) passed = false;
-    // if (+year === +minYear && +month > 1) passed = true;
-    // if (value === minDate) passed = true;
-    // if (+year > nowYeah) passed = false;
-    // if (+year === nowYeah && +month > nowMonth) passed = false;
-    // if (+year === nowYeah && +month === nowMonth && +day > nowDay) passed = false;
     const minDate = new Date('2020-02-01').getTime();
     const passedDate = new Date(value).getTime();
     const todaysDate = new Date().getTime();
