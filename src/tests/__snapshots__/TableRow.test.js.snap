@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar renders the UI as expected 1`] = `
+<tr
+  className="table-row"
+>
+  <td>
+    Deaths Today
+  </td>
+  <td>
+    333
+  </td>
+</tr>
+`;

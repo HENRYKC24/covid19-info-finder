@@ -1,6 +1,6 @@
 # Covid-19 Information App
 
-The application shows the information about corona virus situation in the world. It is built around an API to fetch the needed data. It can show information on the country level as well as region and sub-region levels. You can actually find covid19 information using date filter. This is a capstone project for my React/Redux couse at Microverse Inc.
+The application shows information about the coronavirus situations in the world. It is built around an API to fetch the needed data. It can show information on the country level as well as region and sub-region levels. You can actually find covid19 information using a date filter. This is a capstone project for my React/Redux course at Microverse Inc.
 
 # Biult with:
 1. HTML
@@ -50,11 +50,15 @@ The application shows the information about corona virus situation in the world.
 Contributions, issues, and feature requests are welcome!
 Feel free to contribute
 
+Feel free to check the [issues page](https://github.com/HENRYKC24/covid19-info-finder/issues/).
+
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
+- A spcial thanks to "Creative Commons license of the design" for providing me with the design template used for this project.
 - I remain indepted to the Facebook team that developed create-react-app and React Redux as open source.
 - A special thanks to Microverse for inspiring this project. I really appreciate.
 - A special thanks goes to all my peers at Microverse for being ther for me.

@@ -19,7 +19,7 @@ const SubRegionPage = () => {
     localStorage.setItem('subRegionData', JSON.stringify({ data, country, flag }));
   }
   return (
-    <div>
+    <div className="sub-region-container">
       <h1 className="country-header">Sub-Regional Cases</h1>
       <h1 className="country-header h-heading">
         {new Date(data.date).toDateString()}
@@ -29,7 +29,7 @@ const SubRegionPage = () => {
           <img className="country-image" src={flag} alt="national flag" />
         </div>
         <div className="world-wide">
-          <span className="cases">{data && data.name}</span>
+          <span className="cases name">{data && data.name}</span>
           <span className="cases">Total</span>
           <span>{data && data.today_confirmed.toLocaleString()}</span>
         </div>
