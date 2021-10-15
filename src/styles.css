@@ -349,6 +349,10 @@ body {
   padding: 0;
 }
 
+.date-field {
+  margin-right: 10px;
+}
+
 .footer-text {
   background-color: #18253f;
   padding: 0 3vw;
@@ -404,6 +408,10 @@ body {
   .region-container,
   .sub-region-container {
     padding: 0 20vw;
+  }
+
+  .date-field {
+    margin-right: 0;
   }
 
   .home-container .home-country-card {
