@@ -56,7 +56,7 @@ Feel free to check the [issues page](https://github.com/HENRYKC24/covid19-info-f
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-- A spcial thanks to "Creative Commons" for providing me with the design template used for this project.
+- A spcial thanks to Nelson Sakwa, the creator of the original design, for providing me with the design template used for this project.
 - I remain indepted to the Facebook team that developed create-react-app and React Redux as open source.
 - A special thanks to Microverse for inspiring this project. I really appreciate.
 - A special thanks goes to all my peers at Microverse for being ther for me.
