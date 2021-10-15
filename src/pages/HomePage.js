@@ -104,7 +104,7 @@ const HomePage = () => {
             max={new Date().toLocaleDateString().split('/').reverse()
               .join('-')}
             onChange={onDateChange}
-            className="search-field"
+            className="search-field date-field"
             placeholder="Search"
             type="date"
           />
